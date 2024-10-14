@@ -43,6 +43,12 @@
                   packages = [ pkgs.gcc-unwrapped ];
                   env.LD_LIBRARY_PATH = "${pkgs.gcc-unwrapped.lib}/lib64";
                   pre-commit.hooks = {
+                    clean-notebook = {
+                      enable = true;
+                      name = "Clean Jupyter notebook files.";
+                      entry = "uv run --with jupyter jupyter nbconvert --ClearOutputPreprocessor.enabled=True --ClearMetadataPreprocessor.enabled=True --to=notebook --inplace --log-level=ERROR";
+                      files = "\\.ipynb$";
+                    };
                     nixpkgs-fmt.enable = true;
                     ruff = {
                       enable = true;

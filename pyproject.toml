@@ -9,6 +9,4 @@ dependencies = [
 ]
 
 [tool.uv]
-dev-dependencies = [
-    "nbqa>=1.9.0",
-]
+dev-dependencies = []
