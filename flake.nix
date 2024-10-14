@@ -5,6 +5,7 @@
     systems.url = "github:nix-systems/default";
     devenv.url = "github:cachix/devenv";
     devenv.inputs.nixpkgs.follows = "nixpkgs";
+    pre-commit-hooks.url = "github:cachix/git-hooks.nix";
   };
 
   nixConfig = {
@@ -41,6 +42,11 @@
                   };
                   packages = [ pkgs.gcc-unwrapped ];
                   env.LD_LIBRARY_PATH = "${pkgs.gcc-unwrapped.lib}/lib64";
+                  pre-commit.hooks = {
+                    nixpkgs-fmt.enable = true;
+                    ruff.enable = true;
+                    ruff-format.enable = true;
+                  };
                 }
               ];
             };
