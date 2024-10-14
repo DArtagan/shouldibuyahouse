@@ -44,8 +44,14 @@
                   env.LD_LIBRARY_PATH = "${pkgs.gcc-unwrapped.lib}/lib64";
                   pre-commit.hooks = {
                     nixpkgs-fmt.enable = true;
-                    ruff.enable = true;
-                    ruff-format.enable = true;
+                    ruff = {
+                      enable = true;
+                      files = "\\.(py|ipynb)$";
+                    };
+                    ruff-format = {
+                      enable = true;
+                      files = "\\.(py|ipynb)$";
+                    };
                   };
                 }
               ];
