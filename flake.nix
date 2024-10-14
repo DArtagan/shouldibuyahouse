@@ -47,10 +47,12 @@
                     ruff = {
                       enable = true;
                       files = "\\.(py|ipynb)$";
+                      types = [ "file" ];
                     };
                     ruff-format = {
                       enable = true;
                       files = "\\.(py|ipynb)$";
+                      types = [ "file" ];
                     };
                   };
                 }
